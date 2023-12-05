@@ -16,6 +16,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MadLibsComponent } from './mad-libs/mad-libs.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
     TictactoeComponent,
     PictureMatchComponent,
     ChoiceGameComponent,
+    MadLibsComponent,
   ],
   imports: [
     BrowserModule,

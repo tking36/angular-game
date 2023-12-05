@@ -1,11 +1,46 @@
 <h1>Game Collection</h1>
 
-<div>
+<div class="game-card-container">
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Tic-Tac-Toe</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://i.imgur.com/WoF9iqJ.png"
+      alt="Tic Tac Toe"
+    />
+    <mat-card-content>
+      <p>Classic game of Tic-Tac-Toe.</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [routerLink]="'/tictactoe'" mat-button>Play Now</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Mad Libs</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://i.imgur.com/5VE1VIN.png"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p>Create your own story with Mad Libs</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [routerLink]="'/mad-libs'" mat-button>Play Now</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
     </mat-card-header>
     <img
       mat-card-image
@@ -20,8 +55,29 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button>Play Now</button>
     </mat-card-actions>
   </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Shiba Inu</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+      alt="Photo of a Shiba Inu"
+    />
+    <mat-card-content>
+      <p>
+        The Shiba Inu is the smallest of the six original and distinct spitz
+        breeds of dog from Japan. A small, agile dog that copes very well with
+        mountainous terrain, the Shiba Inu was originally bred for hunting.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Play Now</button>
+    </mat-card-actions>
+  </mat-card> -->
 </div>
