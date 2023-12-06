@@ -1,0 +1,107 @@
+.ttt-title{
+    background-color: black;
+    color: white;
+    border: 5px solid white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  
+    
+  }
+  
+  .ttt-banner{
+    color: white;
+    text-shadow: 5px 5px 5px black;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .ttt{
+    background: linear-gradient(to right, red 50%, blue 50%);
+  }
+  
+  .game {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10rem;
+    height: 100vh;
+    flex-direction: row;
+    align-items: baseline;
+  }
+  
+  .board {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .row {
+    display: flex;
+  }
+  
+  .cell {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: blue;
+  }
+  
+  
+  .red{
+    color: red !important;
+  }
+  
+  .cell:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease-out;
+  }
+  
+  .cell[data-cell='X']:after {
+    content: 'X';
+    color: blue;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .cell[data-cell='O']:after {
+    content: 'O';
+    color: red;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  
+  .cell:hover:not([data-cell]) {
+    background-color: #eee;
+  }
+  
+  
+  .flashing-text {
+    animation: flashing 0.7s infinite;
+  }
+  
+  .wins{
+    color: white;
+    text-shadow: 5px 5px 5px black;
+    font-size: 2rem;
+    color: blue
+  }
+  
+  @keyframes flashing {
+    50% {
+      opacity: 0;
+    }
+  }

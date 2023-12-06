@@ -1,1 +1,89 @@
-<p>tictactoe works!</p>
+<div class="ttt">
+  <div class="ttt-title">
+    <h3 class="wins red">X wins: {{ xWins }}</h3>
+    <h1>Tic Tac Toe</h1>
+    <h3 class="wins">O wins: {{ oWins }}</h3>
+  </div>
+
+  <h2 *ngIf="!winner && !gameOver" class="ttt-banner">
+    Player {{ player }}'s turn
+  </h2>
+  <h2 *ngIf="winner && turn !== 0" class="ttt-banner">
+    Player {{ winner }} wins!
+  </h2>
+  <h2 *ngIf="gameOver && !winner" class="ttt-banner">Game Over</h2>
+
+  <div class="game">
+    <div class="board">
+      <div class="row">
+        <div
+          class="cell"
+          (click)="handleClick(1)"
+          [ngClass]="{ red: one === 'X' }"
+        >
+          {{ one }}
+        </div>
+        <div
+          class="cell"
+          (click)="handleClick(2)"
+          [ngClass]="{ red: two === 'X' }"
+        >
+          {{ two }}
+        </div>
+        <div
+          class="cell"
+          (click)="handleClick(3)"
+          [ngClass]="{ red: three === 'X' }"
+        >
+          {{ three }}
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="cell"
+          (click)="handleClick(4)"
+          [ngClass]="{ red: four === 'X' }"
+        >
+          {{ four }}
+        </div>
+        <div
+          class="cell"
+          (click)="handleClick(5)"
+          [ngClass]="{ red: five === 'X' }"
+        >
+          {{ five }}
+        </div>
+        <div
+          class="cell"
+          (click)="handleClick(6)"
+          [ngClass]="{ red: six === 'X' }"
+        >
+          {{ six }}
+        </div>
+      </div>
+      <div class="row">
+        <div
+          class="cell"
+          (click)="handleClick(7)"
+          [ngClass]="{ red: seven === 'X' }"
+        >
+          {{ seven }}
+        </div>
+        <div
+          class="cell"
+          (click)="handleClick(8)"
+          [ngClass]="{ red: eight === 'X' }"
+        >
+          {{ eight }}
+        </div>
+        <div
+          class="cell"
+          (click)="handleClick(9)"
+          [ngClass]="{ red: nine === 'X' }"
+        >
+          {{ nine }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
