@@ -68,6 +68,10 @@ export class TictactoeComponent {
     } else {
       this.player = 'X';
     }
+
+    console.log(num);
+    console.log(this.player);
+    this.checkGameStatus();
   }
 
   checkForWinner = () => {
@@ -117,8 +121,25 @@ export class TictactoeComponent {
     if (winner) {
       this.winner = winner;
       this.gameOver = true;
+
+      // Update win count
+      if (winner === 'X') {
+        this.xWins++;
+      } else if (winner === 'O') {
+        this.oWins++;
+      }
+
+      // Reset the game after a delay
+      setTimeout(() => {
+        this.resetState();
+      }, 2000); // Delay for 2 seconds before resetting
     } else if (this.turn === 9) {
       this.gameOver = true;
+
+      // Reset the game after a delay if it's a draw
+      setTimeout(() => {
+        this.resetState();
+      }, 2000); // Delay for 2 seconds before resetting
     }
   }
 }
