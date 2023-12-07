@@ -1,1 +1,49 @@
-<p>mad-libs works!</p>
+<div class="ml-container">
+  <h1 class="ml-title">Mad Libs</h1>
+
+  <div *ngIf="prompt" class="ml-prompt">
+    <!-- Nouns -->
+    <div class="ml-prompt-cont">
+      <h3 class="prompt-type">Enter 3 Nouns</h3>
+      <input
+        class="ml-input"
+        *ngFor="let noun of nouns; let i = index"
+        [ngModel]="noun"
+        (ngModelChange)="handleNounChange($event, i)"
+      />
+    </div>
+    <!-- Adjectives -->
+    <div class="ml-prompt-cont">
+      <h3 class="prompt-type">Enter 3 Adjectives</h3>
+      <input
+        class="ml-input"
+        *ngFor="let adjective of adjectives; let i = index"
+        [ngModel]="adjective"
+        (ngModelChange)="handleAdjectiveChange($event, i)"
+      />
+    </div>
+    <!-- Verbs -->
+    <div class="ml-prompt-cont">
+      <h3 class="prompt-type">Enter 3 Verbs</h3>
+      <input
+        class="ml-input"
+        *ngFor="let verb of verbs; let i = index"
+        [ngModel]="verb"
+        (ngModelChange)="handleVerbChange($event, i)"
+      />
+    </div>
+    <button class="ml-submit" (click)="submitMadLib()">Submit</button>
+  </div>
+
+  <div *ngIf="!prompt" class="ml-story">
+    <ng-container *ngFor="let storySet of stories; let i = index">
+      <p
+        class="ml-p"
+        [ngClass]="{ 'story-index': true, even: i % 2 === 0, odd: i % 2 !== 0 }"
+      >
+        <span *ngFor="let story of storySet">{{ story }}</span>
+      </p>
+    </ng-container>
+    <button class="ml-reset" (click)="resetGame()">Reset</button>
+  </div>
+</div>
