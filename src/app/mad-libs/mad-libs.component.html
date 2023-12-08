@@ -1,49 +1,79 @@
 <div class="ml-container">
+  <!-- Your navigation bar component here -->
+  <!-- Replace 'app-navbar' with your actual navigation component selector -->
+  <!-- <app-navbar class="nav"></app-navbar> -->
+
   <h1 class="ml-title">Mad Libs</h1>
 
-  <div *ngIf="prompt" class="ml-prompt">
-    <!-- Nouns -->
+  <div class="ml-prompt">
     <div class="ml-prompt-cont">
       <h3 class="prompt-type">Enter 3 Nouns</h3>
       <input
         class="ml-input"
-        *ngFor="let noun of nouns; let i = index"
-        [ngModel]="noun"
-        (ngModelChange)="handleNounChange($event, i)"
+        [(ngModel)]="nouns[0]"
+        (ngModelChange)="handleNounChange($event, 0)"
+      />
+      <input
+        class="ml-input"
+        [(ngModel)]="nouns[1]"
+        (ngModelChange)="handleNounChange($event, 1)"
+      />
+      <input
+        class="ml-input"
+        [(ngModel)]="nouns[2]"
+        (ngModelChange)="handleNounChange($event, 2)"
       />
     </div>
-    <!-- Adjectives -->
+
     <div class="ml-prompt-cont">
       <h3 class="prompt-type">Enter 3 Adjectives</h3>
       <input
         class="ml-input"
-        *ngFor="let adjective of adjectives; let i = index"
-        [ngModel]="adjective"
-        (ngModelChange)="handleAdjectiveChange($event, i)"
+        [(ngModel)]="adjectives[0]"
+        (ngModelChange)="handleAdjectiveChange($event, 0)"
+      />
+      <input
+        class="ml-input"
+        [(ngModel)]="adjectives[1]"
+        (ngModelChange)="handleAdjectiveChange($event, 1)"
+      />
+      <input
+        class="ml-input"
+        [(ngModel)]="adjectives[2]"
+        (ngModelChange)="handleAdjectiveChange($event, 2)"
       />
     </div>
-    <!-- Verbs -->
+
     <div class="ml-prompt-cont">
       <h3 class="prompt-type">Enter 3 Verbs</h3>
       <input
         class="ml-input"
-        *ngFor="let verb of verbs; let i = index"
-        [ngModel]="verb"
-        (ngModelChange)="handleVerbChange($event, i)"
+        [(ngModel)]="verbs[0]"
+        (ngModelChange)="handleVerbChange($event, 0)"
+      />
+      <input
+        class="ml-input"
+        [(ngModel)]="verbs[1]"
+        (ngModelChange)="handleVerbChange($event, 1)"
+      />
+      <input
+        class="ml-input"
+        [(ngModel)]="verbs[2]"
+        (ngModelChange)="handleVerbChange($event, 2)"
       />
     </div>
+
     <button class="ml-submit" (click)="submitMadLib()">Submit</button>
   </div>
 
   <div *ngIf="!prompt" class="ml-story">
-    <ng-container *ngFor="let storySet of stories; let i = index">
-      <p
-        class="ml-p"
-        [ngClass]="{ 'story-index': true, even: i % 2 === 0, odd: i % 2 !== 0 }"
-      >
-        <span *ngFor="let story of storySet">{{ story }}</span>
-      </p>
-    </ng-container>
+    <p
+      class="ml-p"
+      *ngFor="let story of stories[0]; let i = index"
+      [ngClass]="{ 'story-index': true, even: i % 2 === 0, odd: i % 2 !== 0 }"
+    >
+      {{ story }}
+    </p>
     <button class="ml-reset" (click)="resetGame()">Reset</button>
   </div>
 </div>

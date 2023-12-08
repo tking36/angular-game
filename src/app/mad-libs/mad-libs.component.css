@@ -1,0 +1,62 @@
+.ml-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+  
+  .ml-prompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+  }
+  
+  .ml-prompt-cont{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    padding-bottom: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 2px solid white;
+  }
+  
+  .prompt-type{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .ml-input{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .ml-story{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .ml-p{
+    color: white;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid white;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    background-color: rgb(1, 0, 0);
+    width: 80%;
+  }
+  
+  .ml-reset{
+    margin-top: 20px;
+  }
+  

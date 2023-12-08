@@ -6,32 +6,37 @@ import { Component } from '@angular/core';
   styleUrls: ['./mad-libs.component.css'],
 })
 export class MadLibsComponent {
-  prompt: boolean = true;
+  prompt = true;
   nouns: string[] = ['', '', ''];
   adjectives: string[] = ['', '', ''];
   verbs: string[] = ['', '', ''];
   stories: string[][] = [];
+  randomIndex: number = 0;
 
-  handleNounChange(event: any, index: number): void {
-    const newNouns = [...this.nouns];
-    newNouns[index] = event.target.value;
-    this.nouns = newNouns;
-    this.updateStories(newNouns, this.adjectives, this.verbs);
-    console.log(newNouns);
+  handleNounChange(event: Event, index: number): void {
+    this.nouns[index] = (event.target as HTMLInputElement).value;
+    this.checkAndUpdateStories();
   }
 
-  handleAdjectiveChange(event: any, index: number): void {
-    const newAdjectives = [...this.adjectives];
-    newAdjectives[index] = event.target.value;
-    this.adjectives = newAdjectives;
-    this.updateStories(this.nouns, newAdjectives, this.verbs);
+  handleAdjectiveChange(event: Event, index: number): void {
+    this.adjectives[index] = (event.target as HTMLInputElement).value;
+    this.checkAndUpdateStories();
   }
 
-  handleVerbChange(event: any, index: number): void {
-    const newVerbs = [...this.verbs];
-    newVerbs[index] = event.target.value;
-    this.verbs = newVerbs;
-    this.updateStories(this.nouns, this.adjectives, newVerbs);
+  handleVerbChange(event: Event, index: number): void {
+    this.verbs[index] = (event.target as HTMLInputElement).value;
+    this.checkAndUpdateStories();
+  }
+
+  checkAndUpdateStories(): void {
+    const allFieldsFilled =
+      this.nouns.every(Boolean) &&
+      this.adjectives.every(Boolean) &&
+      this.verbs.every(Boolean);
+
+    if (allFieldsFilled) {
+      this.updateStories(this.nouns, this.adjectives, this.verbs);
+    }
   }
 
   updateStories = (
@@ -70,10 +75,17 @@ export class MadLibsComponent {
     this.adjectives = ['', '', ''];
     this.verbs = ['', '', ''];
     this.stories = [];
+    this.randomIndex = 0;
   }
 
   submitMadLib(): void {
     this.prompt = false;
     this.updateStories(this.nouns, this.adjectives, this.verbs);
+    this.displayRandomStory();
+  }
+
+  displayRandomStory(): void {
+    this.randomIndex = Math.floor(Math.random() * this.stories.length);
+    this.stories = [this.stories[this.randomIndex]];
   }
 }
