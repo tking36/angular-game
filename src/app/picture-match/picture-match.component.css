@@ -1,0 +1,33 @@
+  
+  .pm-game{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  .board {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 2px solid black;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .cell {
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: blue;
+  }

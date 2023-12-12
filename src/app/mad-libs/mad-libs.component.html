@@ -6,7 +6,7 @@
   <h1 class="ml-title">Mad Libs</h1>
 
   <div class="ml-prompt">
-    <div class="ml-prompt-cont">
+    <div *ngIf="prompt" class="ml-prompt-cont">
       <h3 class="prompt-type">Enter 3 Nouns</h3>
       <input
         class="ml-input"
@@ -25,7 +25,7 @@
       />
     </div>
 
-    <div class="ml-prompt-cont">
+    <div *ngIf="prompt" class="ml-prompt-cont">
       <h3 class="prompt-type">Enter 3 Adjectives</h3>
       <input
         class="ml-input"
@@ -44,7 +44,7 @@
       />
     </div>
 
-    <div class="ml-prompt-cont">
+    <div *ngIf="prompt" class="ml-prompt-cont">
       <h3 class="prompt-type">Enter 3 Verbs</h3>
       <input
         class="ml-input"
@@ -63,7 +63,9 @@
       />
     </div>
 
-    <button class="ml-submit" (click)="submitMadLib()">Submit</button>
+    <button *ngIf="prompt" class="ml-submit" (click)="submitMadLib()">
+      Submit
+    </button>
   </div>
 
   <div *ngIf="!prompt" class="ml-story">
