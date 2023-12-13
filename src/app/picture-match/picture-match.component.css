@@ -31,3 +31,35 @@
     cursor: pointer;
     color: blue;
   }
+
+  .monkey{
+    background-image: 'https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/811yZ+JgsiL._SL1500_.jpg';
+  }
+
+  .chicken {
+     background-image: 'https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81gMWT31mfL.__AC_SY300_SX300_QL70_FMwebp_.jpg';
+  }
+
+  .cat {
+    background-image: 'https://www.boredpanda.com/blog/wp-content/uploads/2022/10/Digital-artist-creates-cute-animals-with-clothes-and-its-hard-not-to-fall-in-love-with-them-74-Pics-634d0cc5812fa__700.jpg;'
+  }
+
+  .dino{
+    background-image: 'https://as1.ftcdn.net/v2/jpg/05/77/77/06/1000_F_577770636_BOelNtwZN0BaQ63fxOzAAjkCI4evbF4K.jpg';
+  }
+
+  .dog2{
+    background-image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg9c1VDWltgTtobjeUoieGTQ9pBj0v2QblnAYwmZlEGsvHQPCAKZgpgEtuMycchgyyWsU&usqp=CAU';
+  }
+
+  .goat{
+    background-image: 'https://images.rawpixel.com/image_png_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIzLTA4L2hpcHBvdW5pY29ybl8zZF9pbGx1c3RyYXRpb25fY2FydG9vbl9vZl9nb3JhbF9jYXJ0b29uX2FuaW1hdGlvbl82OTU2YjVjNC1jNWYwLTRlMjQtYjNmZC1hNDkyOThlMmY3MzBfMS5wbmc.png';
+  }
+
+  .donkey{
+    background-image: 'https://as2.ftcdn.net/v2/jpg/05/68/51/19/1000_F_568511904_Yorz32r7YhZfTOzyb4hYLK2G9UtPvRPO.jpg';
+  }
+
+  .sloth{
+    background-image: 'https://i.chzbgr.com/full/9758132480/h48A79B46/animal-szzt-wovch-sizza';
+  }

@@ -2,10 +2,12 @@
 
 <!-- {{ pictures.length | json }} -->
 
+{{ oneName[0] }}
+
 <div class="pm-game">
   <div class="board">
     <div class="row">
-      <div class="cell">one</div>
+      <div class="cell" [ngClass]="oneName[0]">one</div>
       <div class="cell">two</div>
       <div class="cell">three</div>
       <div class="cell">four</div>
