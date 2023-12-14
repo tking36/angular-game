@@ -2,33 +2,102 @@
 
 <!-- {{ pictures.length | json }} -->
 
-{{ oneName[0] }}
+<!-- {{ oneName | json }} -->
+{{ turn }}
+{{ chosen | json }}
+{{ completed | json }}
+
+<!-- [ngClass]="oneName[0]" -->
 
 <div class="pm-game">
   <div class="board">
     <div class="row">
-      <div class="cell" [ngClass]="oneName[0]">one</div>
-      <div class="cell">two</div>
-      <div class="cell">three</div>
-      <div class="cell">four</div>
+      <img
+        class="cell"
+        [src]="getImgSrc(oneName)"
+        (click)="handleTurn(); handleChosen(oneName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(twoName)"
+        (click)="handleTurn(); handleChosen(twoName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(threeName)"
+        (click)="handleTurn(); handleChosen(threeName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(fourName)"
+        (click)="handleTurn(); handleChosen(fourName[0])"
+      />
     </div>
     <div class="row">
-      <div class="cell">five</div>
-      <div class="cell">six</div>
-      <div class="cell">seven</div>
-      <div class="cell">eight</div>
+      <img
+        class="cell"
+        [src]="getImgSrc(fiveName)"
+        (click)="handleTurn(); handleChosen(fiveName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(sixName)"
+        (click)="handleTurn(); handleChosen(sixName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(sevenName)"
+        (click)="handleTurn(); handleChosen(sevenName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(eightName)"
+        (click)="handleTurn(); handleChosen(eightName[0])"
+      />
     </div>
     <div class="row">
-      <div class="cell">nine</div>
-      <div class="cell">ten</div>
-      <div class="cell">eleven</div>
-      <div class="cell">twelve</div>
+      <img
+        class="cell"
+        [src]="getImgSrc(nineName)"
+        (click)="handleTurn(); handleChosen(nineName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(tenName)"
+        (click)="handleTurn(); handleChosen(tenName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(elevenName)"
+        (click)="handleTurn(); handleChosen(elevenName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(twelveName)"
+        (click)="handleTurn(); handleChosen(twelveName[0])"
+      />
     </div>
     <div class="row">
-      <div class="cell">13</div>
-      <div class="cell">14</div>
-      <div class="cell">15</div>
-      <div class="cell">16</div>
+      <img
+        class="cell"
+        [src]="getImgSrc(thirteenName)"
+        (click)="handleTurn(); handleChosen(thirteenName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(fourteenName)"
+        (click)="handleTurn(); handleChosen(fourteenName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(fifteenName)"
+        (click)="handleTurn(); handleChosen(fifteenName[0])"
+      />
+      <img
+        class="cell"
+        [src]="getImgSrc(sixteenName)"
+        (click)="handleTurn(); handleChosen(sixteenName[0])"
+      />
     </div>
   </div>
 </div>

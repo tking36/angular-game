@@ -6,6 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./picture-match.component.css'],
 })
 export class PictureMatchComponent {
+  turn: number = 0;
+
+  chosen: string[] = [];
+
+  completed: string[] = [];
+
   one = '';
   two = '';
   three = '';
@@ -39,6 +45,9 @@ export class PictureMatchComponent {
   fourteenName: [string, string] = ['', ''];
   fifteenName: [string, string] = ['', ''];
   sixteenName: [string, string] = ['', ''];
+
+  question: string =
+    'https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg';
 
   pictures = [
     [
@@ -107,6 +116,37 @@ export class PictureMatchComponent {
     // Assign other variables in a similar manner
 
     this.assignImages();
+    this.checkTurn();
+    this.checkChosen();
+  }
+
+  checkTurn() {
+    if (this.turn > 2) {
+      this.turn = 0;
+    }
+  }
+
+  handleTurn() {
+    this.turn++;
+    this.checkTurn();
+  }
+
+  checkChosen() {
+    if (this.chosen.length === 2) {
+      if (this.chosen[0] !== this.chosen[1]) {
+        setTimeout(() => {
+          this.chosen = [];
+        }, 1000);
+      } else {
+        this.completed.push(this.chosen[0]);
+        this.chosen = [];
+      }
+    }
+  }
+
+  handleChosen(str: string) {
+    this.chosen.push(str);
+    this.checkChosen();
   }
 
   assignImages() {
@@ -189,5 +229,15 @@ export class PictureMatchComponent {
       this.pictures[parseInt(this.sixteen) - 1][0],
       this.pictures[parseInt(this.sixteen) - 1][1],
     ];
+  }
+
+  getImgSrc(imageDetails: [string, string]): string {
+    const [imageName, imageUrl] = imageDetails;
+
+    if (this.completed.includes(imageName) || this.chosen.includes(imageName)) {
+      return imageUrl; // Show the actual image if it meets the conditions
+    } else {
+      return this.question; // Show the question image otherwise
+    }
   }
 }
