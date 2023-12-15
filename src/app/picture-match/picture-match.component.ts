@@ -29,22 +29,22 @@ export class PictureMatchComponent {
   fifteen = '';
   sixteen = '';
 
-  oneName: [string, string] = ['', ''];
-  twoName: [string, string] = ['', ''];
-  threeName: [string, string] = ['', ''];
-  fourName: [string, string] = ['', ''];
-  fiveName: [string, string] = ['', ''];
-  sixName: [string, string] = ['', ''];
-  sevenName: [string, string] = ['', ''];
-  eightName: [string, string] = ['', ''];
-  nineName: [string, string] = ['', ''];
-  tenName: [string, string] = ['', ''];
-  elevenName: [string, string] = ['', ''];
-  twelveName: [string, string] = ['', ''];
-  thirteenName: [string, string] = ['', ''];
-  fourteenName: [string, string] = ['', ''];
-  fifteenName: [string, string] = ['', ''];
-  sixteenName: [string, string] = ['', ''];
+  oneName: [string, string, boolean] = ['', '', false];
+  twoName: [string, string, boolean] = ['', '', false];
+  threeName: [string, string, boolean] = ['', '', false];
+  fourName: [string, string, boolean] = ['', '', false];
+  fiveName: [string, string, boolean] = ['', '', false];
+  sixName: [string, string, boolean] = ['', '', false];
+  sevenName: [string, string, boolean] = ['', '', false];
+  eightName: [string, string, boolean] = ['', '', false];
+  nineName: [string, string, boolean] = ['', '', false];
+  tenName: [string, string, boolean] = ['', '', false];
+  elevenName: [string, string, boolean] = ['', '', false];
+  twelveName: [string, string, boolean] = ['', '', false];
+  thirteenName: [string, string, boolean] = ['', '', false];
+  fourteenName: [string, string, boolean] = ['', '', false];
+  fifteenName: [string, string, boolean] = ['', '', false];
+  sixteenName: [string, string, boolean] = ['', '', false];
 
   question: string =
     'https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg';
@@ -118,6 +118,28 @@ export class PictureMatchComponent {
     this.assignImages();
     this.checkTurn();
     this.checkChosen();
+    this.resetBool();
+  }
+
+  resetBool() {
+    if (this.chosen.length === 0) {
+      this.oneName[2] = false;
+      this.twoName[2] = false;
+      this.threeName[2] = false;
+      this.fourName[2] = false;
+      this.fiveName[2] = false;
+      this.sixName[2] = false;
+      this.sevenName[2] = false;
+      this.eightName[2] = false;
+      this.nineName[2] = false;
+      this.tenName[2] = false;
+      this.elevenName[2] = false;
+      this.twelveName[2] = false;
+      this.thirteenName[2] = false;
+      this.fourteenName[2] = false;
+      this.fifteenName[2] = false;
+      this.sixteenName[2] = false;
+    }
   }
 
   checkTurn() {
@@ -129,6 +151,7 @@ export class PictureMatchComponent {
   handleTurn() {
     this.turn++;
     this.checkTurn();
+    this.resetBool();
   }
 
   checkChosen() {
@@ -153,91 +176,113 @@ export class PictureMatchComponent {
     this.oneName = [
       this.pictures[parseInt(this.one) - 1][0],
       this.pictures[parseInt(this.one) - 1][1],
+      false,
     ];
 
     this.twoName = [
       this.pictures[parseInt(this.two) - 1][0],
       this.pictures[parseInt(this.two) - 1][1],
+      false,
     ];
 
     this.threeName = [
       this.pictures[parseInt(this.three) - 1][0],
       this.pictures[parseInt(this.three) - 1][1],
+      false,
     ];
 
     this.fourName = [
       this.pictures[parseInt(this.four) - 1][0],
       this.pictures[parseInt(this.four) - 1][1],
+      false,
     ];
 
     this.fiveName = [
       this.pictures[parseInt(this.five) - 1][0],
       this.pictures[parseInt(this.five) - 1][1],
+      false,
     ];
 
     this.sixName = [
       this.pictures[parseInt(this.six) - 1][0],
       this.pictures[parseInt(this.six) - 1][1],
+      false,
     ];
 
     this.sevenName = [
       this.pictures[parseInt(this.seven) - 1][0],
       this.pictures[parseInt(this.seven) - 1][1],
+      false,
     ];
 
     this.eightName = [
       this.pictures[parseInt(this.eight) - 1][0],
       this.pictures[parseInt(this.eight) - 1][1],
+      false,
     ];
 
     this.nineName = [
       this.pictures[parseInt(this.nine) - 1][0],
       this.pictures[parseInt(this.nine) - 1][1],
+      false,
     ];
 
     this.tenName = [
       this.pictures[parseInt(this.ten) - 1][0],
       this.pictures[parseInt(this.ten) - 1][1],
+      false,
     ];
 
     this.elevenName = [
       this.pictures[parseInt(this.eleven) - 1][0],
       this.pictures[parseInt(this.eleven) - 1][1],
+      false,
     ];
 
     this.twelveName = [
       this.pictures[parseInt(this.twelve) - 1][0],
       this.pictures[parseInt(this.twelve) - 1][1],
+      false,
     ];
 
     this.thirteenName = [
       this.pictures[parseInt(this.thirteen) - 1][0],
       this.pictures[parseInt(this.thirteen) - 1][1],
+      false,
     ];
 
     this.fourteenName = [
       this.pictures[parseInt(this.fourteen) - 1][0],
       this.pictures[parseInt(this.fourteen) - 1][1],
+      false,
     ];
 
     this.fifteenName = [
       this.pictures[parseInt(this.fifteen) - 1][0],
       this.pictures[parseInt(this.fifteen) - 1][1],
+      false,
     ];
 
     this.sixteenName = [
       this.pictures[parseInt(this.sixteen) - 1][0],
       this.pictures[parseInt(this.sixteen) - 1][1],
+      false,
     ];
   }
 
-  getImgSrc(imageDetails: [string, string]): string {
-    const [imageName, imageUrl] = imageDetails;
+  getImgSrc(imageDetails: [string, string, boolean]): string {
+    const [imageName, imageUrl, revealed] = imageDetails;
 
-    if (this.completed.includes(imageName) || this.chosen.includes(imageName)) {
-      return imageUrl; // Show the actual image if it meets the conditions
+    if (this.completed.includes(imageName)) {
+      return imageUrl; // Show the actual image if it's completed
+    } else if (this.chosen.includes(imageName) && revealed) {
+      return imageUrl; // Show the clicked image
     } else {
       return this.question; // Show the question image otherwise
     }
+  }
+
+  changeBool(imageDetails: [string, string, boolean]) {
+    imageDetails[2] = true;
   }
 }
