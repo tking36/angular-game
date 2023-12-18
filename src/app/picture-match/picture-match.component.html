@@ -1,32 +1,6 @@
 <div class="pm-cont"></div>
 
-<!-- {{ pictures.length | json }} -->
-
-<!-- {{ oneName | json }} -->
-{{ turn }}
-{{ chosen | json }}
-{{ completed | json }}
-
-<h1>sep</h1>
-
-<h4>1{{ oneName[2] }}</h4>
-<h4>2{{ twoName[2] }}</h4>
-<h4>3{{ threeName[2] }}</h4>
-<h4>4{{ fourName[2] }}</h4>
-<h4>5{{ fiveName[2] }}</h4>
-<h4>6{{ sixName[2] }}</h4>
-<h4>7{{ sevenName[2] }}</h4>
-<h4>8{{ eightName[2] }}</h4>
-<h4>9{{ nineName[2] }}</h4>
-<h4>10{{ tenName[2] }}</h4>
-<h4>11{{ elevenName[2] }}</h4>
-<h4>12{{ twelveName[2] }}</h4>
-<h4>13{{ thirteenName[2] }}</h4>
-<h4>14{{ fourteenName[2] }}</h4>
-<h4>15{{ fifteenName[2] }}</h4>
-<h4>16{{ sixteenName[2] }}</h4>
-
-<!-- [ngClass]="oneName[0]" -->
+<h1 *ngIf="completed.length === 8">Game Over!!!</h1>
 
 <div class="pm-game">
   <div class="board">
@@ -34,107 +8,92 @@
       <img
         class="cell"
         [src]="getImgSrc(oneName)"
-        (click)="handleTurn(); handleChosen(oneName[0]); changeBool(oneName)"
+        (click)="handleImageClick(oneName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(twoName)"
-        (click)="handleTurn(); handleChosen(twoName[0]); changeBool(twoName)"
+        (click)="handleImageClick(twoName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(threeName)"
-        (click)="
-          handleTurn(); handleChosen(threeName[0]); changeBool(threeName)
-        "
+        (click)="handleImageClick(threeName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(fourName)"
-        (click)="handleTurn(); handleChosen(fourName[0]); changeBool(fourName)"
+        (click)="handleImageClick(fourName)"
       />
     </div>
     <div class="row">
       <img
         class="cell"
         [src]="getImgSrc(fiveName)"
-        (click)="handleTurn(); handleChosen(fiveName[0]); changeBool(fiveName)"
+        (click)="handleImageClick(fiveName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(sixName)"
-        (click)="handleTurn(); handleChosen(sixName[0]); changeBool(sixName)"
+        (click)="handleImageClick(sixName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(sevenName)"
-        (click)="
-          handleTurn(); handleChosen(sevenName[0]); changeBool(sevenName)
-        "
+        (click)="handleImageClick(sevenName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(eightName)"
-        (click)="
-          handleTurn(); handleChosen(eightName[0]); changeBool(eightName)
-        "
+        (click)="handleImageClick(eightName)"
       />
     </div>
     <div class="row">
       <img
         class="cell"
         [src]="getImgSrc(nineName)"
-        (click)="handleTurn(); handleChosen(nineName[0]); changeBool(nineName)"
+        (click)="handleImageClick(nineName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(tenName)"
-        (click)="handleTurn(); handleChosen(tenName[0]); changeBool(tenName)"
+        (click)="handleImageClick(tenName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(elevenName)"
-        (click)="
-          handleTurn(); handleChosen(elevenName[0]); changeBool(elevenName)
-        "
+        (click)="handleImageClick(elevenName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(twelveName)"
-        (click)="
-          handleTurn(); handleChosen(twelveName[0]); changeBool(twelveName)
-        "
+        (click)="handleImageClick(twelveName)"
       />
     </div>
     <div class="row">
       <img
         class="cell"
         [src]="getImgSrc(thirteenName)"
-        (click)="
-          handleTurn(); handleChosen(thirteenName[0]); changeBool(thirteenName)
-        "
+        (click)="handleImageClick(thirteenName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(fourteenName)"
-        (click)="
-          handleTurn(); handleChosen(fourteenName[0]); changeBool(fourteenName)
-        "
+        (click)="handleImageClick(fourteenName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(fifteenName)"
-        (click)="
-          handleTurn(); handleChosen(fifteenName[0]); changeBool(fifteenName)
-        "
+        (click)="handleImageClick(fifteenName)"
       />
       <img
         class="cell"
         [src]="getImgSrc(sixteenName)"
-        (click)="
-          handleTurn(); handleChosen(sixteenName[0]); changeBool(sixteenName)
-        "
+        (click)="handleImageClick(sixteenName)"
       />
     </div>
   </div>
+  <button *ngIf="completed.length === 8" (click)="gameFinished()">
+    Play Again
+  </button>
 </div>

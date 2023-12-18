@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, SimpleChanges, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-picture-match',
@@ -11,6 +11,8 @@ export class PictureMatchComponent {
   chosen: string[] = [];
 
   completed: string[] = [];
+
+  gameOver = false;
 
   one = '';
   two = '';
@@ -84,6 +86,44 @@ export class PictureMatchComponent {
     ],
   ];
 
+  generateNumbers() {
+    const numbers: number[] = [];
+
+    // Generate an array of numbers from 1 to 8
+    for (let i = 1; i <= 8; i++) {
+      numbers.push(i);
+      numbers.push(i); // Add the same number again to create pairs
+    }
+
+    // Shuffle the array to get a random order of numbers
+    numbers.sort(() => Math.random() - 0.5);
+
+    // Assign unique numbers from the shuffled array to individual variables
+    this.one = numbers.pop()!.toString();
+    this.two = numbers.pop()!.toString();
+    this.three = numbers.pop()!.toString();
+    this.four = numbers.pop()!.toString();
+    this.five = numbers.pop()!.toString();
+    this.six = numbers.pop()!.toString();
+    this.seven = numbers.pop()!.toString();
+    this.eight = numbers.pop()!.toString();
+    this.nine = numbers.pop()!.toString();
+    this.ten = numbers.pop()!.toString();
+    this.eleven = numbers.pop()!.toString();
+    this.twelve = numbers.pop()!.toString();
+    this.thirteen = numbers.pop()!.toString();
+    this.fourteen = numbers.pop()!.toString();
+    this.fifteen = numbers.pop()!.toString();
+    this.sixteen = numbers.pop()!.toString();
+    // Assign other variables in a similar manner
+
+    this.assignImages();
+    this.checkTurn();
+    this.checkChosen();
+    this.resetBool();
+    this.gameFinished();
+  }
+
   constructor() {
     const numbers: number[] = [];
 
@@ -118,6 +158,36 @@ export class PictureMatchComponent {
     this.assignImages();
     this.checkTurn();
     this.checkChosen();
+    this.resetBool();
+    this.gameFinished();
+  }
+
+  handleImageClick(imageDetails: [string, string, boolean]): void {
+    if (!imageDetails[2]) {
+      this.gameFinished();
+      this.handleTurn();
+      this.handleChosen(imageDetails[0]);
+      this.changeBool(imageDetails);
+    }
+  }
+
+  gameFinished() {
+    if (this.completed.length === 8) {
+      this.gameOver = true;
+      this.gameOver = false;
+      this.resetGame();
+    }
+  }
+
+  resetGame() {
+    // Reset all variables to their initial state
+    this.turn = 0;
+    this.chosen = [];
+    this.completed = [];
+
+    this.generateNumbers();
+
+    this.assignImages();
     this.resetBool();
   }
 
@@ -284,5 +354,9 @@ export class PictureMatchComponent {
 
   changeBool(imageDetails: [string, string, boolean]) {
     imageDetails[2] = true;
+
+    setTimeout(() => {
+      this.resetBool();
+    }, 1000);
   }
 }
