@@ -27,13 +27,31 @@
     <img
       mat-card-image
       src="https://i.imgur.com/5VE1VIN.png"
-      alt="Photo of a Shiba Inu"
+      alt="Photo of Mad Libs"
     />
     <mat-card-content>
       <p>Create your own story with Mad Libs</p>
     </mat-card-content>
     <mat-card-actions>
       <button [routerLink]="'/mad-libs'" mat-button>Play Now</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Picture Match</mat-card-title>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="https://i.imgur.com/pY6HFPi.png"
+      alt="Photo of Picture Match"
+    />
+    <mat-card-content>
+      <p>Find the matching pictures</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [routerLink]="'/picture-match'" mat-button>Play Now</button>
     </mat-card-actions>
   </mat-card>
 

@@ -1,6 +1,8 @@
 <div class="pm-cont"></div>
 
-<h1 *ngIf="completed.length === 8">Game Over!!!</h1>
+<h1 class="pm-title">Picture Match</h1>
+
+<h1 class="game-over" *ngIf="completed.length === 8">Game Over!!!</h1>
 
 <div class="pm-game">
   <div class="board">
@@ -93,7 +95,12 @@
       />
     </div>
   </div>
-  <button *ngIf="completed.length === 8" (click)="gameFinished()">
+  <button
+    class="playAgain"
+    mat-raised-button
+    *ngIf="completed.length === 8"
+    (click)="gameFinished()"
+  >
     Play Again
   </button>
 </div>

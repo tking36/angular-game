@@ -1,4 +1,18 @@
-  
+  * {
+    background: linear-gradient(to right, rgb(106, 27, 130), rgb(61, 21, 143) 25%, rgb(0, 0, 255) 50%, rgb(61, 21, 143) 75%, rgb(106, 27, 130));
+    color: white;
+  }
+
+  .pm-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 2rem;
+    margin: 10px;
+    padding: 10px;
+  }
   .pm-game{
     display: flex;
     flex-direction: column;
@@ -14,6 +28,9 @@
     border: 2px solid black;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: black;
+    margin: 10px;
+    padding: 10px;
   }
 
   .row {
@@ -62,4 +79,17 @@
 
   .sloth{
     background-image: 'https://i.chzbgr.com/full/9758132480/h48A79B46/animal-szzt-wovch-sizza';
+  }
+
+  .playAgain {
+    background-color: blue;
+    margin-bottom: 10px;
+  }
+
+  .game-over {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
