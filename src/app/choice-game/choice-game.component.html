@@ -1,10 +1,58 @@
-<div class="cg-cont">
-  <div class="cg-info">
+<div class="game-start" *ngIf="!gameStart">
+  <h1 class="welcome">Welcome to the Murder Case</h1>
+  <h3 class="game-description">
+    This is a murder mystery game. You are a detective. You're task is to solve
+    three murder cases, and put the right suspect in prison
+  </h3>
+  <h3 class="start-task">Are you up for the task?</h3>
+  <button (click)="startGame()" class="start-game" mat-raised-button>
+    Play Game
+  </button>
+</div>
+
+<div *ngIf="gameStart" class="cg-cont">
+  <!-- <div class="cg-info">
     <div class="cg-map"></div>
     <div class="cg-story"></div>
-  </div>
+  </div> -->
   <div class="cg-game">
-    <div class="cg-visual"></div>
-    <div class="cg-options"></div>
+    <div class="cg-visual">
+      <div class="beach-case" *ngIf="caseNumber === 1">
+        <div class="beach-intro" *ngIf="chances === 0">
+          <h1 class="beach-name">{{ beachMurder?.caseDescription?.name }}</h1>
+          <h3 class="beach-info">
+            {{ beachMurder.caseDescription?.description }}
+          </h3>
+        </div>
+        <div *ngIf="chances === 1" class="beach-sus-evi-info">
+          <div class="beach-suspects">
+            <!-- <h2>Suspects:</h2> -->
+            <!-- Loop through suspects using ngFor -->
+            <div *ngFor="let suspect of beachMurder?.suspects">
+              <div class="suspect-info">
+                <h3>Name: {{ suspect.name }}</h3>
+                <p>Relation to Victim: {{ suspect.relationToVictim }}</p>
+                <p>Alibi: {{ suspect.alibi }}</p>
+                <p>Details: {{ suspect.details }}</p>
+                <p>Distance from Crime Scene: {{ suspect.distance }}</p>
+                <!-- Add other suspect details as needed -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cg-options">
+      <button
+        (click)="nextChance()"
+        *ngIf="chances === 0"
+        class="start-game"
+        mat-raised-button
+      >
+        Check Suspects and Evidence
+      </button>
+
+      <div *ngIf="chances === 1" class="beach-sus-evi-buttons">Hello</div>
+    </div>
   </div>
 </div>

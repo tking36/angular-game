@@ -1,3 +1,57 @@
+.game-start{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 100%;
+    background-color: black;
+    color: red;
+}
+
+.welcome{
+    font-size: 3em;
+    font-weight: bold;
+    background: linear-gradient(to right, red, white);
+  -webkit-background-clip: text;
+  color: transparent;
+    margin-bottom: 50px;
+}
+
+.game-description {
+    font-size: 2rem;
+    text-align: center;
+    background: linear-gradient(to left, red, white);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 30px;
+}
+
+.start-task{
+    font-size: 2rem;
+    background: linear-gradient(to right, red, white);
+  -webkit-background-clip: text;
+  color: transparent;
+    margin-bottom: 30px;
+}
+
+.start-game {
+    background: linear-gradient(to right, red, white); /* Apply gradient background */
+    color: white; /* Set text color */
+    border: none; /* Remove default button border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    outline: none; /* Remove outline on focus */
+}
+
+/* Add hover effect if desired */
+.start-game:hover {
+    /* You can adjust the gradient or other properties for hover effect */
+    background: red;
+}
+
+
 .cg-cont{
     display: flex;
     flex-direction: row;
@@ -30,7 +84,7 @@
 
 .cg-game{
     background-color: rgb(117, 26, 26);
-    width: 70%;
+    width: 100%;
     height: 100%;
 }
 
@@ -45,3 +99,70 @@
     width: 100%;
     height: 30%;
 }
+
+/* beach beach beach beach beach beach beach beach beach */
+.beach-case{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: red;
+
+}
+
+
+.beach-intro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    color: red;
+
+}
+
+.beach-name{
+    font-size: 2rem;
+    text-align: center;
+    background: linear-gradient(to left, red, white);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 30px;
+}
+
+.beach-info{
+    text-align: center;
+    width: 100%;
+    font-size: 2rem;
+    background: linear-gradient(to right, red, white);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.cg-options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.beach-sus-evi-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-height: calc(100% - 60px); /* Adjust height based on your navbar's height */
+    width: 50%;
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px; /* Add padding for better visualization */
+  }
+
+.beach-sus-evi{
+    display: flex;
+}
+
+/* beach beach beach beach beach beach beach beach beach */
