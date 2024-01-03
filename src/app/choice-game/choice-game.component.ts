@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 // Define interfaces outside of the component class
 interface Suspect {
@@ -37,6 +38,7 @@ interface Case {
   suspects: Suspect[];
   witnesses: Witness[];
   evidence: Evidence[];
+  criminal?: Suspect;
 }
 
 @Component({
@@ -378,11 +380,15 @@ export class ChoiceGameComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.caseNumber === 1) {
+      this.beachMurder.criminal = this.beachMurder.suspects[3];
+    }
+  }
 
-  gameStart: boolean = false;
+  gameStart: boolean = true;
   caseNumber: number = 1;
-  chances: number = 0;
+  chances: number = 1;
 
   startGame(): void {
     this.gameStart = true;
@@ -392,5 +398,10 @@ export class ChoiceGameComponent implements OnInit {
 
   nextChance(): void {
     this.chances++;
+  }
+
+  addSuspect(suspect: Suspect): void {
+    this.caseData.suspects.push(suspect);
+    console.log(this.caseData.suspects);
   }
 }
