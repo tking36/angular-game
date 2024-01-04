@@ -48,6 +48,15 @@
             </div>
           </div>
         </div>
+        <div *ngIf="chances === 2" class="beach-witness-info">
+          <div
+            *ngFor="let witness of beachMurder?.witnesses"
+            class="beach-witness"
+          >
+            <h3 class="beach-witness-name">Name: {{ witness.name }}</h3>
+            <p>Relation to Victim: {{ witness.statement }}</p>
+          </div>
+        </div>
       </div>
       <div class="cg-options">
         <button
@@ -59,14 +68,18 @@
           Check Suspects and Evidence
         </button>
 
-        <div *ngIf="chances === 1" class="beach-sus-evi-buttons">
-          <button
-            (click)="addSuspect(suspect); nextChance()"
-            *ngFor="let suspect of beachMurder?.suspects"
-            class="beach-sus-btn"
-          >
-            {{ suspect.name }}
-          </button>
+        <div *ngIf="chances === 1 || chances === 2" class="beach-buttons">
+          <div class="beach-sus-evi-buttons">
+            <button
+              (click)="addSuspect(suspect); nextChance()"
+              *ngFor="let suspect of beachMurder?.suspects"
+              class="beach-sus-btn"
+            >
+              {{ suspect.name }}
+            </button>
+          </div>
+          <div class="beach-game-buttons"></div>
+          <button *ngIf=""></button>
         </div>
       </div>
     </div>

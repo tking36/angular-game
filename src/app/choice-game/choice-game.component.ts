@@ -388,7 +388,9 @@ export class ChoiceGameComponent implements OnInit {
 
   gameStart: boolean = true;
   caseNumber: number = 1;
-  chances: number = 1;
+  chances: number = 0;
+  gameWin: boolean = false;
+  choices: any = [];
 
   startGame(): void {
     this.gameStart = true;
@@ -401,7 +403,23 @@ export class ChoiceGameComponent implements OnInit {
   }
 
   addSuspect(suspect: Suspect): void {
-    this.caseData.suspects.push(suspect);
-    console.log(this.caseData.suspects);
+    this.choices.push(suspect);
+    // console.log(this.caseData.suspects);
+
+    setTimeout(() => {
+      this.checkWin();
+    }, 1000);
+  }
+
+  checkWin(): void {
+    if (
+      this.choices[0]?.name === this.beachMurder.criminal?.name &&
+      this.choices[1]?.name === this.beachMurder.criminal?.name
+    ) {
+      this.gameWin = true;
+    }
+    console.log(this.gameWin);
+    console.log(this.beachMurder.criminal?.name);
+    console.log(this.choices);
   }
 }
