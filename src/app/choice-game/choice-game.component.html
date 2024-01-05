@@ -18,8 +18,12 @@
   <div class="cg-game">
     <div class="cg-visual">
       <div class="beach-case" *ngIf="caseNumber === 1">
+        <div class="case-description" *ngIf="chances === 100">
+          {{ beachMurder.caseDescription?.description }}
+        </div>
+
         <div class="beach-intro" *ngIf="chances === 0">
-          <h1 class="beach-name">{{ beachMurder?.caseDescription?.name }}</h1>
+          <h1 class="beach-name">{{ beachMurder.caseDescription?.name }}</h1>
           <h3 class="beach-info">
             {{ beachMurder.caseDescription?.description }}
           </h3>
@@ -40,7 +44,7 @@
           <div class="beach-sus-evi-info">
             <div
               class="beach-evi-info"
-              *ngFor="let evidence of beachMurder?.evidence"
+              *ngFor="let evidence of beachMurder.evidence"
             >
               <h3 class="beach-evidence-name">Name: {{ evidence.name }}</h3>
               <p>Type: {{ evidence.details.type }}</p>
@@ -56,6 +60,12 @@
             <h3 class="beach-witness-name">Name: {{ witness.name }}</h3>
             <p>Relation to Victim: {{ witness.statement }}</p>
           </div>
+        </div>
+        <div class="game-ending" *ngIf="choices.length > 1">
+          <h1 class="game-win" *ngIf="gameWin">You Have Solved the Case!!!</h1>
+          <h1 class="game-loss" *ngIf="!gameWin && choices.length === 2">
+            Wrong suspect. You have lost the case!
+          </h1>
         </div>
       </div>
       <div class="cg-options">
@@ -78,9 +88,30 @@
               {{ suspect.name }}
             </button>
           </div>
-          <div class="beach-game-buttons"></div>
-          <button *ngIf=""></button>
+          <div class="all-game-info">
+            <button (click)="setChance(100)" class="game-info">
+              Check Case Details
+            </button>
+
+            <button
+              *ngIf="chances === 2"
+              (click)="setChance(99)"
+              class="game-info"
+            >
+              Check Evidence and Witnesses
+            </button>
+          </div>
+          <!-- <div class="beach-game-buttons"></div>
+          <button *ngIf=""></button> -->
         </div>
+        <button
+          (click)="restartGame()"
+          *ngIf="chances === 3"
+          class="start-game"
+        >
+          Restart Game
+        </button>
+        <button *ngIf="chances === 100">Hello</button>
       </div>
     </div>
   </div>

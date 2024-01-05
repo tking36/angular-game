@@ -237,5 +237,37 @@
     color: black;
 }
 
+.beach-sus-evi-buttons{
+    margin-bottom: 20px;
+}
+
+.game-info{
+    background: linear-gradient(to right, red, white); /* Apply gradient background */
+    color: white; /* Set text color */
+    border: none; /* Remove default button border */
+    padding: 10px 20px; /* Adjust padding as needed */
+    font-size: 1.5rem; /* Adjust font size as needed */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    outline: none; /* Remove outline on focus */
+}
+
+.case-description{
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem;
+    background: linear-gradient(to right, red, white);
+    -webkit-background-clip: text;
+    color: transparent;
+    padding: 40px;
+    margin: 20px;
+    /* height: 100%; */
+}
+
+.all-game-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 
 /* beach beach beach beach beach beach beach beach beach */
