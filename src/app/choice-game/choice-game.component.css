@@ -36,7 +36,7 @@
 }
 
 .start-game {
-    background: linear-gradient(to right, red, white); /* Apply gradient background */
+    background: linear-gradient(to right, red, black); /* Apply gradient background */
     color: white; /* Set text color */
     border: none; /* Remove default button border */
     padding: 10px 20px; /* Adjust padding as needed */
@@ -70,12 +70,6 @@
     height: 100%;
 }
 
-.cg-map{
-    background-color: rgb(26, 91, 26);
-    width: 100%;
-    height: 30%;
-}
-
 .cg-story{
     background-color: rgb(110, 110, 22);
     width: 100%;
@@ -83,7 +77,7 @@
 }
 
 .cg-game{
-    background-color: rgb(117, 26, 26);
+    background-color: black;
     width: 100%;
     height: 100%;
 }
@@ -95,9 +89,10 @@
 }
 
 .cg-options{
-    background-color: rgb(132, 96, 31);
+    background: linear-gradient(to left, red, black);
     width: 100%;
     height: 30%;
+    border: 5px solid red;
 }
 
 /* beach beach beach beach beach beach beach beach beach */
@@ -157,7 +152,7 @@
     justify-content: center;
     width: 100%;
     height: 95%;
-    overflow: auto; /* Enable scrolling for overflow content */
+    
   }
 
 .beach-sus-evi-info {
@@ -167,23 +162,24 @@
   justify-content: center;
   width: 100%;
   height: 95%;
-  overflow: auto; /* Enable scrolling for overflow content */
 }
 
 .beach-suspect-info{
-    background-color: white;
-    color: black;
+    background-color: rgb(3, 62, 114);
+    color: red;
     margin-left: 5px;
     margin-right: 5px;
-    padding: 5px;
+    padding: 2px;
+    border: 1px solid red;
+    overflow: auto;
+    min-height: 330px;
+    font-size: 1.2rem;
 }
 
 .beach-sus-name{
     font-size: 1.5rem;
     text-align: center;
-    background: linear-gradient(to left, red, black);
-  -webkit-background-clip: text;
-  color: transparent;
+    color: red;
   margin-bottom: 30px;
 }
 
@@ -221,11 +217,14 @@
 }
 
 .beach-evi-info{
-    background-color: white;
-    color: black;
+    font-size: 1.3rem;
+    background-color: rgb(3, 62, 114);
+    color: red;
     margin-left: 5px;
     margin-right: 5px;
-    padding: 5px;
+    padding: 2px;
+    border: 1px solid red;
+    min-height: 170px;
 }
 
 .beach-witness-info{
@@ -233,8 +232,21 @@
 }
 
 .beach-witness{
-    background-color: white;
-    color: black;
+    background-color: rgb(3, 62, 114);
+    color: red;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 2px;
+    border: 1px solid red;
+    overflow: auto;
+}
+
+.beach-witness-name{
+    font-size: 1.8rem;
+}
+
+.witness-disc{
+    font-size: 1.5rem;
 }
 
 .beach-sus-evi-buttons{
@@ -242,13 +254,18 @@
 }
 
 .game-info{
-    background: linear-gradient(to right, red, white); /* Apply gradient background */
+    background: linear-gradient(to right, red, black); /* Apply gradient background */
     color: white; /* Set text color */
     border: none; /* Remove default button border */
     padding: 10px 20px; /* Adjust padding as needed */
     font-size: 1.5rem; /* Adjust font size as needed */
     cursor: pointer; /* Change cursor to pointer on hover */
     outline: none; /* Remove outline on focus */
+}
+
+.game-info:hover {
+    /* You can adjust the gradient or other properties for hover effect */
+    background: red;
 }
 
 .case-description{
@@ -269,5 +286,16 @@
     align-items: center;
 }
 
+.game-title{
+    font-size: 1.4rem;
+    text-align: center;
+    background: linear-gradient(to left, red, white);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.beach-evidence-name{
+    font-size: 1.3rem;
+}
 
 /* beach beach beach beach beach beach beach beach beach */

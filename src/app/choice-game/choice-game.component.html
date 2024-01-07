@@ -11,24 +11,29 @@
 </div>
 
 <div *ngIf="gameStart" class="cg-cont">
-  <!-- <div class="cg-info">
-    <div class="cg-map"></div>
-    <div class="cg-story"></div>
-  </div> -->
   <div class="cg-game">
     <div class="cg-visual">
       <div class="beach-case" *ngIf="caseNumber === 1">
         <div class="case-description" *ngIf="chances === 100">
-          {{ beachMurder.caseDescription?.description }}
+          <h3 class="game-title">Case Description</h3>
+          <p>{{ beachMurder.caseDescription?.description }}</p>
+        </div>
+        <div class="case-description" *ngIf="chances === 99">
+          <h3 class="game-title">Evidence</h3>
+          <div class="beach-sus-evi-info">
+            <div
+              class="beach-evi-info"
+              *ngFor="let evidence of beachMurder.evidence"
+            >
+              <h3 class="beach-evidence-name">Name: {{ evidence.name }}</h3>
+              <p>Type: {{ evidence.details.type }}</p>
+              <p>Details: {{ evidence.details.details }}</p>
+            </div>
+          </div>
         </div>
 
-        <div class="beach-intro" *ngIf="chances === 0">
-          <h1 class="beach-name">{{ beachMurder.caseDescription?.name }}</h1>
-          <h3 class="beach-info">
-            {{ beachMurder.caseDescription?.description }}
-          </h3>
-        </div>
-        <div *ngIf="chances === 1" class="beach-sus-info">
+        <div class="case-description" *ngIf="chances === 98">
+          <h3 class="game-title">Suspects</h3>
           <div class="beach-sus-evi-info">
             <div
               *ngFor="let suspect of beachMurder?.suspects"
@@ -39,8 +44,37 @@
               <p>Alibi: {{ suspect.alibi }}</p>
               <p>Details: {{ suspect.details }}</p>
               <p>Distance from Crime Scene: {{ suspect.distance }}</p>
+              <p>Height: {{ suspect.height }}</p>
+              <p>Weight: {{ suspect.weight }}</p>
+              <p>Occupation: {{ suspect.weight }}</p>
             </div>
           </div>
+        </div>
+
+        <div class="beach-intro" *ngIf="chances === 0">
+          <h1 class="beach-name">{{ beachMurder.caseDescription?.name }}</h1>
+          <h3 class="beach-info">
+            {{ beachMurder.caseDescription?.description }}
+          </h3>
+        </div>
+        <div *ngIf="chances === 1" class="beach-sus-info">
+          <h3 class="game-title">Suspects</h3>
+          <div class="beach-sus-evi-info">
+            <div
+              *ngFor="let suspect of beachMurder?.suspects"
+              class="beach-suspect-info"
+            >
+              <h3 class="beach-sus-name">Name: {{ suspect.name }}</h3>
+              <p>Relation to Victim: {{ suspect.relationToVictim }}</p>
+              <p>Alibi: {{ suspect.alibi }}</p>
+              <p>Details: {{ suspect.details }}</p>
+              <p>Distance from Crime Scene: {{ suspect.distance }}</p>
+              <p>Height: {{ suspect.height }}</p>
+              <p>Weight: {{ suspect.weight }}</p>
+              <p>Occupation: {{ suspect.weight }}</p>
+            </div>
+          </div>
+          <h3 class="game-title">Evidence</h3>
           <div class="beach-sus-evi-info">
             <div
               class="beach-evi-info"
@@ -53,12 +87,15 @@
           </div>
         </div>
         <div *ngIf="chances === 2" class="beach-witness-info">
+          <h3 class="game-title">Witnesses</h3>
           <div
             *ngFor="let witness of beachMurder?.witnesses"
             class="beach-witness"
           >
             <h3 class="beach-witness-name">Name: {{ witness.name }}</h3>
-            <p>Relation to Victim: {{ witness.statement }}</p>
+            <p class="witness-disc">
+              Relation to Victim: {{ witness.statement }}
+            </p>
           </div>
         </div>
         <div class="game-ending" *ngIf="choices.length > 1">
@@ -72,7 +109,7 @@
         <button
           (click)="nextChance()"
           *ngIf="chances === 0"
-          class="start-game"
+          class="game-info"
           mat-raised-button
         >
           Check Suspects and Evidence
@@ -98,7 +135,14 @@
               (click)="setChance(99)"
               class="game-info"
             >
-              Check Evidence and Witnesses
+              Check Evidence
+            </button>
+            <button
+              *ngIf="chances === 2"
+              (click)="setChance(98)"
+              class="game-info"
+            >
+              Check Suspects
             </button>
           </div>
           <!-- <div class="beach-game-buttons"></div>
@@ -107,11 +151,33 @@
         <button
           (click)="restartGame()"
           *ngIf="chances === 3"
-          class="start-game"
+          class="game-info hello"
         >
           Restart Game
         </button>
-        <button *ngIf="chances === 100">Hello</button>
+
+        <button
+          class="game-info"
+          *ngIf="chances === 100 && choices.length === 0"
+          (click)="setChance(1)"
+        >
+          Go Back
+        </button>
+        <button
+          class="game-info"
+          *ngIf="chances === 100 && choices.length === 1"
+          (click)="setChance(2)"
+        >
+          Go Back
+        </button>
+
+        <button class="game-info" *ngIf="chances === 99" (click)="setChance(2)">
+          Go Back
+        </button>
+
+        <button class="game-info" *ngIf="chances === 98" (click)="setChance(2)">
+          Go Back
+        </button>
       </div>
     </div>
   </div>
